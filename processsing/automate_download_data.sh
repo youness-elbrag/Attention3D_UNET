@@ -13,6 +13,10 @@ cmd="kaggle datasets download -d awsaf49/brats20-dataset-training-validation"
 mkcd()
 {
     #make file executable 
+    cd .. 
+    python create_env.py Unet 
+    source Unet/bin/activate
+    cd processing
     if [-f kaggle.json];then
          chmod 600 $api
     else
