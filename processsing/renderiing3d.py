@@ -1,21 +1,29 @@
 import matplotlib.pyplot as plt
 from matplotlib import cm
+from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.animation as anim
 from matplotlib.animation import FuncAnimation, PillowWriter 
 import matplotlib.patches as mpatches
 import matplotlib.gridspec as gridspec
-
+import tqdm
 import numpy as np
+import nrrd
+import h5py
+import nilearn.plotting as nlplt
+from skimage.transform import resize
+from skimage.util import montage
+from numba import jit, cuda
 
-
-from IPython.display import Image as show_gif
 from IPython.display import clear_output
 from IPython.display import YouTubeVideo
-
 from IPython.display import Image as show_gif
 
 import warnings
 warnings.simplefilter("ignore")
+
+import os
+os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
+os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 
 class ImageToGIF:
     """Create GIF without saving image files."""
@@ -53,7 +61,6 @@ class ImageToGIF:
     def save(self, filename, fps):
         animation = anim.ArtistAnimation(self.fig, self.images)
         animation.save(filename, writer='pillow', fps=fps)
-        
         
 class Image3dToGIF3d:
     """
@@ -110,7 +117,6 @@ class Image3dToGIF3d:
         scaled_data = np.clip(self._scale_by(norm_data, 2) - 0.1, 0, 1)
         resized_data = resize(scaled_data, self.img_dim, mode='constant')
         return resized_data
-    
     def plot_cube(self,
                   cube,
                   title: str = '', 
