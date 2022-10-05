@@ -1,1 +1,21 @@
-kaggle
+# kaggle
+# tqdm
+# random2
+# numpy
+# sklearn
+# nilearn
+# torch 
+# torchvision 
+# torchaudio
+#imageio
+# scikit-image
+# albumentations
+# antspyx
+# SimpleITK
+# nipype
+# nibabel
+#nibabel
+# brainextractor
+# glob2
+pynrrd
+pydicom
