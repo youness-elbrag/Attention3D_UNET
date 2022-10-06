@@ -12,13 +12,13 @@ in many cases for processing Medical images to get better understanding of disea
 - Solution
 For automatic segmentation we will use Unet3d To predict the age and number of days of survival: first, we will train the auto-encoder to scale the space from 4 240 240 * 150 to 512, and then extract the statistical values, ​​and hidden representations for each identifier in the data encoded by the pre-trained auto-encoder and based on this tabular data we will train SVR
 
-1. [introduction](introduction)
+1. [introduction](#introduction)
 2. [environment_project]
 3. [run_project]
 5. [model]
 5. [Results]
 
-###### introcction
+##### introcction
 *Imaging Data Description*
 
 All BraTS multimodal scans are available as NIfTI files (.nii.gz) and describe a) native (T1) and b) post-contrast T1-weighted (T1Gd), c) T2-weighted (T2), and d) T2 Fluid Attenuated Inversion Recovery (T2-FLAIR) volumes, and were acquired with different clinical protocols and various scanners from multiple (n=19) institutions, mentioned as data contributors here.
