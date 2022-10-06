@@ -8,7 +8,7 @@
 # torchvision 
 # torchaudio
 #imageio
-# scikit-image
+# scikit-imagels 
 # albumentations
 # antspyx
 # SimpleITK
@@ -19,3 +19,5 @@
 # glob2
 pynrrd
 pydicom
+IPython
+h5py
