@@ -33,7 +33,7 @@ All the imaging datasets have been segmented manually, by one to four raters, fo
        1. create [kaggle](https://www.kaggle.com/) account to access to the data API 
        2. add path kaggle.json to script shell $path_api
        3. create the enviromenet here you will need to run 
-       
+
                 python create_env.py {name of your env}
 
        4. make sure the requirements.txt exist to the repo 
@@ -50,7 +50,7 @@ All the imaging datasets have been segmented manually, by one to four raters, fo
 	* tool description;
 
         we develpoed a simple tool that helps to Post Processing the dstaset 
-        1. N4 bais Correction field this will increase the Low intensity of the image to run :
+        1. N4 bais Correction field this will increase the Low intensity of the image to run 
                     python Postprocessing --path {path_name} --n4baiscorrection
 
         2. Skull Stripping this technic helps to reduce tissues such skull and midbrain .. only we do care about in our project is brain tissues to tun it :
