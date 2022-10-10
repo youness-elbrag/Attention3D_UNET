@@ -40,6 +40,8 @@ All the imaging datasets have been segmented manually, by one to four raters, fo
        install the packges if you want fisrt neeed to run 
 
                 'pip install -r requirements.txt' 
+                
+       - here you will need to run script shell to install all the dependencies needed automated setup whole project 
 
                 'chmod +x automate_downlaod_data.sh && ./automate_downlaod_data.sh'
 
