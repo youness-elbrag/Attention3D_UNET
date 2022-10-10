@@ -1,6 +1,6 @@
 from renderiing3d import ImageToGIF ,Image3dToGIF3d
 from IPython.display import Image as show_gif
-
+import argparse
 import nibabel as nib
 import nilearn as nl
 import numpy as np
@@ -15,11 +15,21 @@ import os
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 
+parser = argparse.ArgumentParser()
+parser = argparse.ArgumentParser("--help",
+description='tool for MRI rendering images using python Python ''Procssing dataset Brats2020 ')                                              
+parser.add_argument('--v2Drender',action='store_true'
+,help="rendering 2D images from nii file took all sclices ")
+parser.add_argument('--v3Drender',action='store_true'
+,help="rendering the 3D nii file this may take while to be finished .")
+args = parser.parse_args()
+
+
 
 import warnings
 warnings.simplefilter("ignore")
 #few sample of daraset Brasts cancer
-sample_filename = 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_001/BraTS20_Training_001_flair.nii'
+sample_filename = 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_001/BraTS20_Training_001_t1.nii'
 sample_filename_mask = 'BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData/BraTS20_Training_001/BraTS20_Training_001_seg.nii'
 
 
@@ -33,29 +43,37 @@ print("mask shape ->", sample_mask.shape)
 
 ## matching colormaps
 #Greys_r RdGy_r  CMRmap afmhot binary_r bone copper cubehelix gist_heat gist_stern gnuplot hot inferno magma nipy_spectral
-sample_data_gif = ImageToGIF()
-label = sample_filename.replace('/', '.').split('.')[-2]
-filename = 'images_processing/'+label+'_3d_2d.gif'
+try:
+    if args.v2Drender :
+        sample_data_gif = ImageToGIF()
+        label = sample_filename.replace('/', '.').split('.')[-2]
+        filename = 'images_processing/'+label+'_2d.gif'
 
-for i in range(sample_img.shape[0]):
-    image = np.rot90(sample_img[i])
-    mask = np.clip(np.rot90(sample_mask[i]), 0, 1)
-    sample_data_gif.add(image, mask, label=f'{label}_{str(i)}')
- 
-sample_data_gif.save(filename, fps=15)
-show_gif(filename, format='png')
+        for i in range(sample_img.shape[0]):
+            image = np.rot90(sample_img[i])
+            mask = np.clip(np.rot90(sample_mask[i]), 0, 1)
+            sample_data_gif.add(image, mask, label=f'{label}_{str(i)}')
+        
+        sample_data_gif.save(filename, fps=15)
+        show_gif(filename, format='png')
 
+    elif args.v3Drender :
 
+        title = sample_filename.replace(".", "/").split("/")[-2]
+        filename = title+"_3d.gif"
 
-title = sample_filename.replace(".", "/").split("/")[-2]
-filename = title+"_3d.gif"
+        data_to_3dgif = Image3dToGIF3d()#img_dim = (120, 120, 78)
+        transformed_data = data_to_3dgif.get_transformed_data(sample_img)
+        data_to_3dgif.plot_cube(
+            transformed_data[:10, :20, :11],#[:77, :105, :55]
+            title=title,
+            make_gif=True,
+            path_to_save=filename
+        )
+        show_gif(filename, format='png')
+    else  : #print("may this could happned because of :"+err)    
+          ValueError("segmentation dume core \n, check if you laptop support GPU")
+    
+except:
+       Exception("something goes wrong ,,, please check the path or file")       
 
-data_to_3dgif = Image3dToGIF3d()#img_dim = (120, 120, 78)
-transformed_data = data_to_3dgif.get_transformed_data(sample_img)
-data_to_3dgif.plot_cube(
-    transformed_data[:10, :20, :11],#[:77, :105, :55]
-    title=title,
-    make_gif=True,
-    path_to_save=filename
-)
-show_gif(filename, format='png')
