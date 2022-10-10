@@ -37,7 +37,7 @@ All the imaging datasets have been segmented manually, by one to four raters, fo
                 python create_env.py {name of your env}
 
        4. make sure the requirements.txt exist to the repo 
-       * install the packges if you want fisrt neeed to run 
+       install the packges if you want fisrt neeed to run 
 
                 pip install -r requirements.txt 
 
@@ -51,7 +51,7 @@ All the imaging datasets have been segmented manually, by one to four raters, fo
 
         we develpoed a simple tool that helps to Post Processing the dstaset 
         1. N4 bais Correction field this will increase the Low intensity of the image to run :
-               python Postprocessing --path {path_name} --n4baiscorrection
+                    python Postprocessing --path {path_name} --n4baiscorrection
 
         2. Skull Stripping this technic helps to reduce tissues such skull and midbrain .. only we do care about in our project is brain tissues to tun it :
 
