@@ -13,7 +13,7 @@ in many cases for processing Medical images to get better understanding of disea
 For automatic segmentation we will use Unet3d To predict the age and number of days of survival: first, we will train the auto-encoder to scale the space from 4 240 240 * 150 to 512, and then extract the statistical values, ​​and hidden representations for each identifier in the data encoded by the pre-trained auto-encoder and based on this tabular data we will train SVR
 
 1. [introduction](#introduction)
-2. [environment_project]
+2. [environment_project](#environment_project)
 3. [run_project]
 5. [model]
 5. [Results]
@@ -33,16 +33,11 @@ All the imaging datasets have been segmented manually, by one to four raters, fo
        1. create [kaggle](https://www.kaggle.com/) account to access to the data API 
        2. add path kaggle.json to script shell $path_api
        3. create the enviromenet here you will need to run 
-
                 python create_env.py {name of your env}
-
        4. make sure the requirements.txt exist to the repo 
-          install the packges if you want fisrt neeed to run 
-
+       * install the packges if you want fisrt neeed to run 
                 pip install -r requirements.txt 
-
-          chmod +x automate_downlaod_data.sh && ./automate_downlaod_data.sh
-
+                chmod +x automate_downlaod_data.sh && ./automate_downlaod_data.sh
 * PerProcessig dataset Brast2020;
 
     this tool built based on top of BET algorithm that publish from [FSL](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/BET) and [N4baisCorrection](https://pubmed.ncbi.nlm.nih.gov/20378467/) we automated the process and handle the data in 3D shape
@@ -51,11 +46,8 @@ All the imaging datasets have been segmented manually, by one to four raters, fo
 
         we develpoed a simple tool that helps to Post Processing the dstaset 
         1. N4 bais Correction field this will increase the Low intensity of the image to run :
-
-                     python Postprocessing --path {path_name} --n4baiscorrection
-
+               python Postprocessing --path {path_name} --n4baiscorrecti
         2. Skull Stripping this technic helps to reduce tissues such skull and midbrain .. only we do care about in our project is brain tissues to tun it :
-        
                      python Postprocessing --path {path_name} --skull_stripping 
 
 	* Item 2.2;
