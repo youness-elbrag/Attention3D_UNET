@@ -33,15 +33,11 @@ All the imaging datasets have been segmented manually, by one to four raters, fo
        * create [kaggle](https://www.kaggle.com/) account to access to the data API 
        * add path kaggle.json to script shell $path_api
        * create the enviromenet here you will need to run 
-
-                python create_env.py {name of your env}
-
+                'python create_env.py {name of your env}'
        * make sure the requirements.txt exist to the repo 
        install the packges if you want fisrt neeed to run 
-
-                pip install -r requirements.txt 
-
-                chmod +x automate_downlaod_data.sh && ./automate_downlaod_data.sh
+                'pip install -r requirements.txt' 
+                 'chmod +x automate_downlaod_data.sh && ./automate_downlaod_data.sh'
 
 * PerProcessig dataset Brast2020;
 
@@ -50,7 +46,7 @@ All the imaging datasets have been segmented manually, by one to four raters, fo
 	* tool description ;
         we develpoed a simple tool that helps to Post Processing the dstaset 
         * N4 bais Correction field this will increase the Low intensity of the image to run :
-        
+
                    python Postprocessing --path {path_name} --n4baiscorrection 
 
         * Skull Stripping this technic helps to reduce tissues such skull and midbrain .. only we do care about in our project is brain tissues to tun it :
