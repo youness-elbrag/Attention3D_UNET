@@ -49,10 +49,9 @@ All the imaging datasets have been segmented manually, by one to four raters, fo
 
 	* tool description ;
         we develpoed a simple tool that helps to Post Processing the dstaset 
-        * N4 bais Correction field this will increase the Low intensity of the image to run 
-
-            python Postprocessing --path {path_name} --n4baiscorrection 
+        * N4 bais Correction field this will increase the Low intensity of the image to run :
+                   python Postprocessing --path {path_name} --n4baiscorrection 
 
         * Skull Stripping this technic helps to reduce tissues such skull and midbrain .. only we do care about in our project is brain tissues to tun it :
 
-            python Postprocessing --path {path_name} --skull_stripping 
+                   python Postprocessing --path {path_name} --skull_stripping 
