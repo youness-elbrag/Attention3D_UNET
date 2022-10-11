@@ -23,7 +23,7 @@ parser.add_argument('--n4baisfieldcorrection',action='store_true',
 help="A directory to save corrected samples n4baisfieldcorrection ")
 parser.add_argument('--skull_stripping',action='store_true',
 help="A directory to save corrected samples Skull stripping.")
-args = parser.parse_args() 
+args = parser.parse_args()  
 
 
 
