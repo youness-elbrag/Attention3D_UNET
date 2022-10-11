@@ -18,14 +18,14 @@ For automatic segmentation we will use Unet3d To predict the age and number of d
 5. [model]
 5. [Results]
 
-### introduction
+### 1. introduction
 *Imaging Data Description*
 
 All BraTS multimodal scans are available as NIfTI files (.nii.gz) and describe a) native (T1) and b) post-contrast T1-weighted (T1Gd), c) T2-weighted (T2), and d) T2 Fluid Attenuated Inversion Recovery (T2-FLAIR) volumes, and were acquired with different clinical protocols and various scanners from multiple (n=19) institutions, mentioned as data contributors here.
 
 All the imaging datasets have been segmented manually, by one to four raters, following the same annotation protocol, and their annotations were approved by experienced neuro-radiologists. Annotations comprise the GD-enhancing tumor (ET — label 4), the peritumoral edema (ED — label 2), and the necrotic and non-enhancing tumor core (NCR/NET — label 1), as described both in the BraTS 2012-2013 TMI paper and in the latest BraTS summarizing paper. The provided data are distributed after their pre-processing, i.e., co-registered to the same anatomical template, interpolated to the same resolution (1 mm^3) and skull-stripped.
 
-### environment project
+### 2. environment project
 * setup the enviroment;
 	* install script shell 
        here you will need to run script shell to install all the dependencies needed for 
@@ -44,12 +44,14 @@ All the imaging datasets have been segmented manually, by one to four raters, fo
        - here you will need to run script shell to install all the dependencies needed automated setup whole project 
 
                 chmod +x automate_downlaod_data.sh && ./automate_downlaod_data.sh
-### run project 
+### 3. run project 
 
 * PostProcessig dataset Brast2020;
 
-    this tool built based on top of BET algorithm that publish from [FSL](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/BET) and [N4baisCorrection](https://pubmed.ncbi.nlm.nih.gov/20378467/) we automated the process and handle the data in 3D shape;
+    this tool built based on top of BET algorithm that publish from [FSL](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/BET) and [N4baisCorrection](https://pubmed.ncbi.nlm.nih.gov/20378467/) we automated the process and handle the data in 3D shape
+
 	* tool description ;
+
         we develpoed a simple tool that helps to Post Processing the dstaset 
         * N4 bais Correction field this will increase the Low intensity of the image to run :
 
@@ -58,3 +60,14 @@ All the imaging datasets have been segmented manually, by one to four raters, fo
         * Skull Stripping this technic helps to reduce tissues such skull and midbrain .. only we do care about in our project is brain tissues to tun it :
 
                    python Postprocessing --path {path_name} --skull_stripping 
+                   
+* Virtualization  dataset Brast2020;
+     
+    to vitualize few samples from the data you need to run this command 
+
+    python virtaulizerpy --v2Dreneder && echo "this will render images in 2D " 
+
+    for rendering the images in 3D you will need to run 
+
+    python virtualizer.py --3Drender && echo  "this commaned may takes will depmed on the GPU perfomence you have "
+
