@@ -13,8 +13,8 @@ in many cases for processing Medical images to get better understanding of disea
 For automatic segmentation we will use Unet3d To predict the age and number of days of survival: first, we will train the auto-encoder to scale the space from 4 240 240 * 150 to 512, and then extract the statistical values, ​​and hidden representations for each identifier in the data encoded by the pre-trained auto-encoder and based on this tabular data we will train SVR
 
 1. [introduction](#introduction)
-2. [environment project](#environment-project)
-3. [run project](#run-project)
+2. [environment project](#environmentproject)
+3. [run project](#runproject)
 5. [model]
 5. [Results]
 
