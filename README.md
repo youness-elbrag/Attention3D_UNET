@@ -60,14 +60,14 @@ All the imaging datasets have been segmented manually, by one to four raters, fo
         * Skull Stripping this technic helps to reduce tissues such skull and midbrain .. only we do care about in our project is brain tissues to tun it :
 
                    python Postprocessing --path {path_name} --skull_stripping 
-                   
+
 * Virtualization  dataset Brast2020;
      
     to vitualize few samples from the data you need to run this command 
 
-    python virtaulizerpy --v2Dreneder && echo "this will render images in 2D " 
+            python virtaulizerpy --v2Dreneder && echo "this will render images in 2D " 
 
     for rendering the images in 3D you will need to run 
 
-    python virtualizer.py --3Drender && echo  "this commaned may takes will depmed on the GPU perfomence you have "
+            python virtualizer.py --3Drender && echo  "this commaned may takes will depmed on the GPU perfomence you have "
 
