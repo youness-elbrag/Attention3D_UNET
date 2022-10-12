@@ -45,7 +45,7 @@ def preprocess_brats_folder(in_folder, out_folder, truth_name='seg', no_correcti
         case_ID = os.path.basename(out_folder)
         out_path = os.path.abspath(os.path.join(out_folder, "%s_%s.nii"%(case_ID, name)))
         perform_correction = no_correction_modalities and name not in no_correction_modalities
-        normalize_image=Normalize_Brastdata(image_image, out_folder,correction=perform_correction)
+        normalize_image=Normalize_Brastdata(image_image, out_path,correction=perform_correction)
         if args.n4baisfieldcorrection:
            normalize_image(args.n4baisfieldcorrection)
         elif args.skull_stripping:

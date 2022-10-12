@@ -6,6 +6,10 @@ from matplotlib.animation import FuncAnimation, PillowWriter
 import matplotlib.patches as mpatches
 import matplotlib.gridspec as gridspec
 import tqdm
+import nibabel as nib
+import nilearn as nl
+import nilearn.plotting as nlplt
+import matplotlib.pyplot as plt
 import numpy as np
 import nrrd
 import h5py
@@ -169,3 +173,62 @@ class Image3dToGIF3d:
 
             else:
                 plt.show()
+
+
+   
+class CorrectedPrceess:
+
+    def __init__(self,orign_path_img,correcte_img):
+
+        self.orign_img = orign_path_img
+        self.corrected_img = correcte_img
+
+    def virtualize_bias(self,save_path_img,type_virtualizer):
+        #take the last part of path as sting to allocate in the title of image 
+        before_img = nl.image.load_img(self.orign_img)
+        correction_img=nl.image.load_img(self.corrected_img)
+        name_img = self.orign_img.split('/')[-1]
+        fig ,axes = plt.subplots(nrows=2,figsize=(15,20))
+
+            #the function to plot the corrected with oring img 
+            #     type_virtualizer{
+            #     option 1 = Anat ,
+            #     option 2 = epi ,
+            #     option 3 = img ,
+            #     option 4 = roi 
+            #  } 
+        if type_virtualizer == 'anat':
+            
+            nlplt.plot_anat(before_img,
+                    title=name_img + 'oring plot_anat',
+                    axes=axes[0])
+            nlplt.plot_anat(correction_img,
+                    title=name_img + 'corrcted plot_anat',
+                    axes=axes[1])
+            fig.savefig(save_path_img+name_img+'comparing_corrected.png')  
+
+            #plt.show() 
+        # Plot cuts of an EPI image (by default 3 cuts: Frontal, Axial, and Lateral)
+        elif type_virtualizer == 'epi' : 
+
+                nlplt.plot_epi(before_img,
+                    title=name_img + 'oring plot_epi',
+                    axes=axes[0])
+                nlplt.plot_epi(correction_img,
+                    title=name_img + 'corrcted plot_epi',
+                    axes=axes[1])
+                fig.savefig(save_path_img+name_img+'comparing_corrected_with_oring.png')    
+        # Plot cuts of an ROI/mask image (by default 3 cuts: Frontal, Axial, and Lateral)
+        elif type_virtualizer == 'img':
+
+                nlplt.plot_img(before_img,
+                    title=name_img + 'oring plot_img',
+                    axes=axes[0])
+                nlplt.plot_img(correction_img,
+                    title=name_img + 'corrcted plot_img',
+                    axes=axes[1])
+                fig.savefig( save_path_img+name_img+'comparing_corrected_with_oring.png') 
+        else :
+                Exception("make sure you chose the corrected type plot")
+        
+        return plt.show()    
