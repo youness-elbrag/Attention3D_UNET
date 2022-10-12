@@ -55,11 +55,11 @@ All the imaging datasets have been segmented manually, by one to four raters, fo
         we develpoed a simple tool that helps to Post Processing the dstaset 
         * N4 bais Correction field this will increase the Low intensity of the image to run :
 
-                   python Postprocessing.py --path {path_name} --n4baiscorrection 
+                   python Postprocessing.py --path path_name --n4baiscorrection 
 
         * Skull Stripping this technic helps to reduce tissues such skull and midbrain .. only we do care about in our project is brain tissues to tun it :
 
-                   python Postprocessing.py --path {path_name} --skull_stripping 
+                   python Postprocessing.py --path path_name --skull_stripping 
 
 * Virtualization  dataset Brast2020;
      
@@ -68,7 +68,7 @@ All the imaging datasets have been segmented manually, by one to four raters, fo
         the Options to plot the corrected with oring img 
         type_plot{option 1 = Anat ,option 2 = epi ,option= img }
                
-        python virtaulizer.py --corrected_samples type_plot && echo "this will render images in 2D " 
+        python virtaulizer.py --corrected_samples --type_plot option  
 
 
     for rendering the images in 3D or 2d slices you will need to run 
