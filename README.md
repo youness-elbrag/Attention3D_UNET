@@ -65,9 +65,9 @@ All the imaging datasets have been segmented manually, by one to four raters, fo
      
     to vitualize few samples from the data you need to run this command 
 
-            python virtaulizerpy --v2Dreneder && echo "this will render images in 2D " 
+            python virtaulizer.py --v2Dreneder && echo "this will render images in 2D " 
 
     for rendering the images in 3D you will need to run 
 
-            python virtualizer.py --3Drender && echo  "this commaned may takes will depmed on the GPU perfomence you have "
+            python virtualizer.py --v3Drender && echo  "this commaned may takes will depmed on the GPU perfomence you have "
 
