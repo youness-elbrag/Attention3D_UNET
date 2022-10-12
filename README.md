@@ -64,8 +64,15 @@ All the imaging datasets have been segmented manually, by one to four raters, fo
 * Virtualization  dataset Brast2020;
      
     to vitualize few samples from the data you need to run this command 
+           #the function to plot the corrected with oring img 
+            #     type_virtualizer {
+            #     option 1 = Anat ,
+            #     option 2 = epi ,
+            #     option 3 = img ,
+            #     
+            #  }
 
-            python virtaulizer.py --v2Dreneder && echo "this will render images in 2D " 
+            python virtaulizer.py --v2Dreneder plot_type && echo "this will render images in 2D " 
 
     for rendering the images in 3D you will need to run 
 
