@@ -6,6 +6,7 @@ import nilearn as nl
 import numpy as np
 import nrrd
 import h5py
+from tqdm import tqdm
 
 from IPython.display import Image as show_gif
 
@@ -15,7 +16,7 @@ import os
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 
-parser = argparse.ArgumentParser()
+parser = argparse.ArgumentParser(exit_on_error=False)
 parser = argparse.ArgumentParser("--help",description='tool for MRI rendering images using python Python ''Procssing dataset Brats2020 ')                                              
 parser.add_argument('--v2Drender',action='store_true'
 ,help="rendering 2D images from nii file took all sclices ")
@@ -24,7 +25,7 @@ parser.add_argument('--v3Drender',action='store_true'
 parser.add_argument('--corrected_samples',action='store_true'
 ,help="virtualize the corrected sample according to Orign image.")
 
-parser.add_argument('--type_plot',required=True
+parser.add_argument('--type_plot'
 ,help="virtualize the corrected sample according to Orign image.")
 
 args = parser.parse_args()
@@ -60,20 +61,23 @@ try:
         sample_data_gif.save(filename, fps=15)
         show_gif(filename, format='png')
 
-    elif args.v3Drender :
+    elif args.v3Drender:
 
-        title = sample_filename.replace(".", "/").split("/")[-2]
-        filename = save_path_img+title+"_3d.gif"
-        #img_dim = (120, 120, 78)
-        data_to_3dgif = Image3dToGIF3d()#
-        transformed_data = data_to_3dgif.get_transformed_data(sample_img)
-        data_to_3dgif.plot_cube(
-            transformed_data[:10, :20, :11],#[:77, :105, :55]
-            title=title,
-            make_gif=True,
-            path_to_save=filename
-        )
-        show_gif(filename, format='png')
+            title = sample_filename.replace(".", "/").split("/")[-2]
+            print(title)
+            filename = save_path_img+title+"younes_3d.gif"
+            #img_dim = (120, 120, 78)
+            data_to_3dgif = Image3dToGIF3d()#
+            transformed_data = data_to_3dgif.get_transformed_data(sample_img)
+            #print(transformed_data)
+            data_to_3dgif.plot_cube(
+                transformed_data[:38, :47, :35],#[:77, :105, :55]
+                title=title,
+                make_gif=True,
+                path_to_save=filename
+            )
+            show_gif(filename, format='png')
+
     elif args.corrected_samples:
            #the function to plot the corrected with oring img 
             #     type_virtualizer{
@@ -86,8 +90,8 @@ try:
             output.virtualize_bias(save_path_img,args.type_plot) 
             #print(output) 
     else  : #print("may this could happned because of :"+err)    
-          ValueError("segmentation dume core \n, check if you laptop support GPU")
+         ValueError("segmentation dume core \n, check if you laptop support GPU")
     
-except Exception:
-      Exception("something goes wrong ,,, please check the path or file")       
+except:
+        Exception("something goes wrong ,,, please check the path or file")       
 
