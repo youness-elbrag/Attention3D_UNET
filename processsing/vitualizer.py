@@ -25,6 +25,7 @@ parser.add_argument('--v3Drender',action='store_true'
 parser.add_argument('--corrected_samples',action='store_true'
 ,help="virtualize the corrected sample according to Orign image.")
 
+
 parser.add_argument('--type_plot'
 ,help="virtualize the corrected sample according to Orign image.")
 
