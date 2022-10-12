@@ -68,7 +68,9 @@ All the imaging datasets have been segmented manually, by one to four raters, fo
         the Options to plot the corrected with oring img 
         type_plot{option 1 = Anat ,option 2 = epi ,option= img }
                
-        python virtaulizer.py --v2Dreneder type_plot && echo "this will render images in 2D " 
+        python virtaulizer.py --corrected_samples type_plot && echo "this will render images in 2D " 
+
+    ![myImage](processsing/images_processing/BraTS20_Training_001_t1.niicomparing_corrected.png)
 
     for rendering the images in 3D you will need to run 
 
