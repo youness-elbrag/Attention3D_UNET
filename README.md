@@ -70,9 +70,10 @@ All the imaging datasets have been segmented manually, by one to four raters, fo
                
         python virtaulizer.py --corrected_samples type_plot && echo "this will render images in 2D " 
 
-    ![myImage](processsing/images_processing/BraTS20_Training_001_t1.niicomparing_corrected.png)
 
-    for rendering the images in 3D you will need to run 
+    for rendering the images in 3D or 2d slices you will need to run 
+           
+            python virtaulizer.py --v2Drender && echo "this will render images in 2D "
 
             python virtualizer.py --v3Drender && echo  "this commaned may takes will depmed on the GPU perfomence you have "
 
