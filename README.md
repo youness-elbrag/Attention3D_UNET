@@ -12,20 +12,20 @@ in many cases for processing Medical images to get better understanding of disea
 - Solution
 For automatic segmentation we will use Unet3d To predict the age and number of days of survival: first, we will train the auto-encoder to scale the space from 4 240 240 * 150 to 512, and then extract the statistical values, ​​and hidden representations for each identifier in the data encoded by the pre-trained auto-encoder and based on this tabular data we will train SVR
 
-1. [introduction](#1.introduction)
-2. [environment project](#2.environment-project)
-3. [run project](#3.run-project)
+1. [introduction](#introduction)
+2. [environment project](#environment-project)
+3. [run project](#run-project)
 5. [model]
 5. [Results]
 
-### 1.introduction
+### introduction
 *Imaging Data Description*
 
 All BraTS multimodal scans are available as NIfTI files (.nii.gz) and describe a) native (T1) and b) post-contrast T1-weighted (T1Gd), c) T2-weighted (T2), and d) T2 Fluid Attenuated Inversion Recovery (T2-FLAIR) volumes, and were acquired with different clinical protocols and various scanners from multiple (n=19) institutions, mentioned as data contributors here.
 
 All the imaging datasets have been segmented manually, by one to four raters, following the same annotation protocol, and their annotations were approved by experienced neuro-radiologists. Annotations comprise the GD-enhancing tumor (ET — label 4), the peritumoral edema (ED — label 2), and the necrotic and non-enhancing tumor core (NCR/NET — label 1), as described both in the BraTS 2012-2013 TMI paper and in the latest BraTS summarizing paper. The provided data are distributed after their pre-processing, i.e., co-registered to the same anatomical template, interpolated to the same resolution (1 mm^3) and skull-stripped.
 
-### 2.environment-project
+### environment-project
 * setup the enviroment;
 	* install script shell 
        here you will need to run script shell to install all the dependencies needed for 
@@ -44,7 +44,7 @@ All the imaging datasets have been segmented manually, by one to four raters, fo
        - here you will need to run script shell to install all the dependencies needed automated setup whole project 
 
                 chmod +x automate_downlaod_data.sh && ./automate_downlaod_data.sh
-### 3.run-project 
+### run-project 
 
 * PostProcessig dataset Brast2020;
 
