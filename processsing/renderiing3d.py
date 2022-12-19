@@ -12,10 +12,8 @@ import nilearn.plotting as nlplt
 import numpy as np
 import nrrd
 import h5py
-import nilearn.plotting as nlplt
 from skimage.transform import resize
 from skimage.util import montage
-from numba import jit, cuda
 import imageio
 
 from IPython.display import clear_output
@@ -234,12 +232,12 @@ class CorrectedPrceess:
         # Plot cuts of an ROI/mask image (by default 3 cuts: Frontal, Axial, and Lateral)
         elif type_virtualizer == 'img':
 
-            nlplt.plot_img(before_img,
+            nlplt.plot_roi(before_img,
                            title=name_img + 'oring plot_img',
-                           axes=axes[0])
-            nlplt.plot_img(correction_img,
+                           axes=axes[3], cmap='Paired')
+            nlplt.plot_roi(correction_img,
                            title=name_img + 'corrcted plot_img',
-                           axes=axes[1])
+                           axes=axes[3], cmap='Paired')
             fig.savefig(save_path_img + name_img +
                         'comparing_corrected_with_oring.png')
         else:
