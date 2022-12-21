@@ -23,7 +23,7 @@ class AttentionBlock(nn.Module):
     stride = 2; please set --attention parameter to 1 when activate this block. the result name should include "att2".
     To fit in the structure of the V-net: F_l = F_int
     '''
-    def __init__(self, F_g, F_l, F_int, scale_factor=2, mode="trilinear"):
+    def __init__(self, F_g, F_l, F_int, scale_factor=1, mode="trilinear"):
         super(AttentionBlock, self).__init__()
         self.scale_factor = scale_factor
         self.mode = mode
@@ -66,7 +66,7 @@ class Down(nn.Module):
     def __init__(self, in_channels, out_channels):
         super().__init__()
         self.encoder = nn.Sequential(
-            nn.MaxPool3d(kernel_size=2, stride=2),
+            nn.MaxPool3d(kernel_size=1, stride=1),
             DoubleConv(in_channels, out_channels)
         )
     def forward(self, x):
