@@ -1,4 +1,4 @@
-from .model_blocks import *
+from model_blocks import *
 
 class UNET3DPP(nn.Module):
     def __init__(self, in_channels, out_channels, n_classes):

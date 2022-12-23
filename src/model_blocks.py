@@ -62,6 +62,7 @@ class AttentionBlock(nn.Module):
             return alpha
         else:
             return x * alpha
+            
 class Down(nn.Module):
     def __init__(self, in_channels, out_channels):
         super().__init__()
@@ -135,7 +136,8 @@ class UpPP(nn.Module):
         x2 = torch.nn.functional.pad(x2, (diffX2 // 2, diffX2 - diffX2 // 2, diffY2 // 2, diffY2 - diffY2 // 2, diffZ2 // 2, diffZ2 - diffZ2 // 2))
         x1 = torch.nn.functional.pad(x1, (diffX1 // 2, diffX1 - diffX1 // 2, diffY1 // 2, diffY1 - diffY1 // 2, diffZ1 // 2, diffZ1 - diffZ1 // 2))
         x = torch.cat([x4, x3, x2, x1], dim=1)
-        return self.conv(x)    
+        return self.conv(x)   
+
 class UpPPP(nn.Module):
     def __init__(self, in_channels, out_channels, trilinear=True):
         super().__init__()
