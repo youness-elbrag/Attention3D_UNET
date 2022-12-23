@@ -12,10 +12,8 @@ def read_yaml(fpath=None):
         yml = yaml.load(file, Loader=yaml.Loader)
         return Dict(yml)
 
-"""
-Create class function for target path and seed random
-"""
-path_yaml = "./brast2020.yaml
+
+path_yaml = "./brast2020.yaml"
 cfg = read_yaml(path_yaml)
 
 class GlobalConfig():
@@ -30,10 +28,7 @@ class GlobalConfig():
 
 
 def Fold_df_traning(number_split=7):
-   """
-    In this dataset of MICCAI_BraTS2020, it has two data files CSV so we need to
-    merge them into one data frame to visualize and remove null data 
-    """
+   
     name_mapping = pd.read_csv(os.path.join(config.root, config.train_path + config.name_mapping_path))
     survival_info = pd.read_csv(os.path.join(config.root, config.train_path + config.survival_info_path))
     name_mapping.rename({'BraTS_2020_subject_ID': 'Brats20ID'}, axis = 1, inplace = True)

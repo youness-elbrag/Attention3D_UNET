@@ -36,12 +36,12 @@ Data:
         num_workers: 8
 
 Model:
-    name: TransMIL
-    n_classes: 2
+    name: 3DattentionUnet++
+    n_classes: 3
 
 
 Optimizer:
-    opt: lookahead_radam
+    opt: Adam
     lr: 0.0002
     opt_eps: null 
     opt_betas: null
@@ -49,6 +49,6 @@ Optimizer:
     weight_decay: 0.00001
 
 Loss:
-    base_loss: CrossEntropyLoss
+    base_loss: BCEDiceLoss
 
 
