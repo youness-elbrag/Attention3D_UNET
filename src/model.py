@@ -1,6 +1,8 @@
-from model_blocks import *
+from building_blocks import Down ,AttentionBlock , Up , UpPP , UpPPP , Out
+from torchsummary import summary
 
-class UNET3DPP(nn.Module):
+
+class AttentionUNetPlus(nn.Module):
     def __init__(self, in_channels, out_channels, n_classes):
         super().__init__()
         self.in_channels = in_channels
@@ -82,8 +84,8 @@ class UNET3DPP(nn.Module):
         # Output
         out = self.out(x04)
         return out
-        
+
 if __name__ == '__main__':
     input_ = torch.rand(4,78,78,78)
-    model_2 = UNET3DPP(in_channels=4, out_channels=32, n_classes=3).to('cuda')
-    summary(model_2, input_)
+    model = UNET3DPP(in_channels=4, out_channels=32, n_classes=3).to('cuda')
+    summary(model, input_)

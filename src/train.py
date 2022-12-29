@@ -1,6 +1,12 @@
-from metrice import * 
-from AUnet3DPlus import * 
-from Dataset_loader import * 
+from metrice import BCEDiceLoss
+from model import AttentionUNetPlus
+from Dataset_loader import BratsDataSet , get_dataloader , get_transform
+from utilis import read_yaml 
+
+path_yaml = "./brast2020.yaml"
+cfg = read_yaml(path_yaml)
+
+
 
 
 class Trainer:
@@ -158,7 +164,7 @@ class Trainer:
         pd.DataFrame(
             dict(zip(log_names, logs))
         ).to_csv("train_log.csv", index=False)
-        
+
 
 if __name__ == "__main__":
     
@@ -167,12 +173,13 @@ if __name__ == "__main__":
     trainer = Trainer(net=model,
                   dataset=BratsDataSet,
                   criterion=BCEDiceLoss(),
-                  lr=5e-4,
-                  accumulation_steps=4,
-                  batch_size=1,
-                  fold=0,
-                  num_epochs=1,
-                  path_to_csv = config.path_to_csv,)
+                  lr=cfg.lr,
+                  accumulation_steps=cfg.accumulation_steps
+                  batch_size=cfg.batch_size,
+                  fold=cgf.fold,
+                  num_epochs=cfg.num_epochs,
+                  path_to_csv = config.path_to_csv,
+                  )
 
     # if config.pretrained_model_path is not None:
     #     trainer.load_predtrain_model(config.pretrained_model_path)
