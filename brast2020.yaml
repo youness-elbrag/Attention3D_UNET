@@ -1,17 +1,11 @@
 General:
-    comment: 
     seed: 2022
-    fp16: True
-    amp_level: O2
-    precision: 16 
-    multi_gpu_mode: dp
-    gpus: [0]
+    gpus: cuda
     epochs: &epoch 200 
-    grad_acc: 2
-    frozen_bn: False
-    patience: 10
-    server: test #train #test
-    log_path: logs/
+    accumulation_steps: 1
+    num_epochs: 200
+    lr: 0.0002
+    server: train #train #test
      
     
     
@@ -29,24 +23,17 @@ Data:
 
     train_dataloader:
         batch_size: 1 
-        num_workers: 8
+        num_workers: 0
 
     test_dataloader:
         batch_size: 1
-        num_workers: 8
+        num_workers: 0
 
 Model:
-    name: 3DattentionUnet++
+    name: AttentionUNetPlus
     n_classes: 3
 
 
-Optimizer:
-    opt: Adam
-    lr: 0.0002
-    opt_eps: null 
-    opt_betas: null
-    momentum: null 
-    weight_decay: 0.00001
 
 Loss:
     base_loss: BCEDiceLoss

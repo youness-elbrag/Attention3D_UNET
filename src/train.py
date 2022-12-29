@@ -168,15 +168,15 @@ class Trainer:
 
 if __name__ == "__main__":
     
-    model = UNET3DPP(in_channels=4, out_channels=32, n_classes=3).to('cuda')
+    model = cfg.Model.name(in_channels=4, out_channels=32, n_classes=cgf.Model.n_classes).to(cfg.General.gpus).
 
     trainer = Trainer(net=model,
                   dataset=BratsDataSet,
-                  criterion=BCEDiceLoss(),
-                  lr=cfg.lr,
-                  accumulation_steps=cfg.accumulation_steps
-                  batch_size=cfg.batch_size,
-                  fold=cgf.fold,
+                  criterion=cgf.Loss.BasicLoss,
+                  lr=cfg.General.lr,
+                  accumulation_steps=cfg.General.accumulation_steps
+                  batch_size=cfg.Data.train_dataloader.batch_size,
+                  fold=cgf.Data..fold,
                   num_epochs=cfg.num_epochs,
                   path_to_csv = config.path_to_csv,
                   )
