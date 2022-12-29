@@ -82,3 +82,8 @@ class UNET3DPP(nn.Module):
         # Output
         out = self.out(x04)
         return out
+        
+if __name__ == '__main__':
+    input_ = torch.rand(4,78,78,78)
+    model_2 = UNET3DPP(in_channels=4, out_channels=32, n_classes=3).to('cuda')
+    summary(model_2, input_)
