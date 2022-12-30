@@ -2,11 +2,17 @@ from metrice import BCEDiceLoss
 from model import AttentionUNetPlus
 from Dataset_loader import BratsDataSet , get_dataloader , get_transform
 from utilis import read_yaml 
-
-path_yaml = "./brast2020.yaml"
-cfg = read_yaml(path_yaml)
+import argparse
 
 
+#--->Setting parameters
+def make_parse():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--stage', default='train', type=str)
+    parser.add_argument('--config', default='../brast2020.yaml',type=str)
+    parser.add_argument('--fold', default = 0)
+    args = parser.parse_args()
+    return 
 
 
 class Trainer:
@@ -168,17 +174,25 @@ class Trainer:
 
 if __name__ == "__main__":
     
-    model = cfg.Model.name(in_channels=4, out_channels=32, n_classes=cgf.Model.n_classes).to(cfg.General.gpus).
+    args = make_parse()
+    cfg = read_yaml(args.config)
+    _ = Fold_df_traning(number_split=7)
+    #---->update
+    cfg.config = args.config
+    cfg.General.server = args.stage
+    cfg.Data.fold = args.fold
+
+    model = cfg.Model.name(in_channels=4, out_channels=32, n_classes=cgf.Model.n_classes).to(cfg.General.gpus)
 
     trainer = Trainer(net=model,
                   dataset=BratsDataSet,
-                  criterion=cgf.Loss.BasicLoss,
+                  criterion=cgf.Loss.base_loss,
                   lr=cfg.General.lr,
-                  accumulation_steps=cfg.General.accumulation_steps
+                  accumulation_steps=cfg.General.accumulation_steps,
                   batch_size=cfg.Data.train_dataloader.batch_size,
-                  fold=cgf.Data..fold,
-                  num_epochs=cfg.num_epochs,
-                  path_to_csv = config.path_to_csv,
+                  fold=cgf.Data.fold,
+                  num_epochs=cfg.General.num_epochs,
+                  path_to_csv = cfg.Data.path_to_csv,
                   )
 
     # if config.pretrained_model_path is not None:

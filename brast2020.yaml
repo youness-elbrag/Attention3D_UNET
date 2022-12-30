@@ -17,7 +17,7 @@ Data:
     val_path: BraTS2020_ValidationData/MICCAI_BraTS2020_ValidationData/
     name_mapping_path: name_mapping.csv
     survival_info_path: survival_info.csv
-    train_df: train_df.csv
+    path_to_csv: train_df.csv
     fold: 0
     nfold: 4
 
