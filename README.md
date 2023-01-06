@@ -34,7 +34,7 @@ All the imaging datasets have been segmented manually, by one to four raters, fo
        * add path kaggle.json to script shell $path_api
        * create the enviromenet here you will need to run 
 
-                python create_env.py {name of your env}
+                conda create --name Segemnetation python=3.6
 
        * make sure the requirements.txt exist to the repo 
        install the packges if you want fisrt neeed to run 
@@ -43,37 +43,12 @@ All the imaging datasets have been segmented manually, by one to four raters, fo
 
        - here you will need to run script shell to install all the dependencies needed automated setup whole project 
 
-                chmod +x automate_downlaod_data.sh && ./automate_downlaod_data.sh
+                chmod +x download_dataset.sh && ./automate_downlaod_data.sh
 ### run-project 
 
 * PostProcessig dataset Brast2020;
 
-    this tool built based on top of BET algorithm that publish from [FSL](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/BET) and [N4baisCorrection](https://pubmed.ncbi.nlm.nih.gov/20378467/) we automated the process and handle the data in 3D shape
+    this tool built based on top of BET algorithm that publish from [FSL](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/BET) and [N4baisCorrection](https://pubmed.ncbi.nlm.nih.gov/20378467/) we automated the process and handle the data in 3D shape link Project [Repository](https://github.com/deep-matter/Post-Processing) **visited and run this First Stage**
 
-	* tool description ;
-
-        we develpoed a simple tool that helps to Post Processing the dstaset 
-        * N4 bais Correction field this will increase the Low intensity of the image to run :
-
-                   python Postprocessing.py --path path_name --n4baiscorrection 
-
-        * Skull Stripping this technic helps to reduce tissues such skull and midbrain .. only we do care about in our project is brain tissues to tun it :
-
-                   python Postprocessing.py --path path_name --skull_stripping 
-
-* Virtualization  dataset Brast2020;
-     
-    to vitualize few samples from the data you need to run this command 
-
-        the Options to plot the corrected with oring img 
-        type_plot{option 1 = Anat ,option 2 = epi ,option= img }
-               
-        python virtaulizer.py --corrected_samples --type_plot option  
-
-
-    for rendering the images in 3D or 2d slices you will need to run 
-           
-            python virtaulizer.py --v2Drender && echo "this will render images in 2D "
-
-            python virtualizer.py --v3Drender && echo  "this commaned may takes will depmed on the GPU perfomence you have "
+	
 
