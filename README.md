@@ -63,18 +63,16 @@ our Pipline divde into tow Stage to train model Unet++ and Unet++ with Attention
     
     we provide the Yaml file configuration for Fine-Tuning the model brast2020.yml , has all the Hyper-Parameters to setup ,  we can change the model by updating the Model in config file which are **[UNET3DPPATTEN ,UNET3DPP ]**
     for run the model to train on GPU follwing the command :
-
-        ```sh
-            python train.py --stage train --config brast2020.yaml --fold 0
-        ```
+    ```python
+        python train.py --stage train --config brast2020.yaml --fold 0
+    ```
 * Evaluation the model indenpendently:
     
     we provide here also the evaluation model indenpendently ,  we can change the model by updating the Model in config file  evaluate.yaml which are **[UNET3DPPATTEN ,UNET3DPP ]**
     for run the model to train on GPU follwing the command :
-
-        ```sh
-            python predict.py --stage evaluate --config evaluate.yaml 
-        ```
+    ```python
+        python predict.py --stage evaluate --config evaluate.yaml 
+    ```
 
 ### Results
 
@@ -82,21 +80,21 @@ the performence of the both model we trained on indenpendently for 250 Epochs sh
 
 **Table 1**: show the Evaluation Metrics we used DCS|JSC 
 
-    | Dice Similarity | Jaccard Similarity |
-    |----------------|--------------------|
-    | WT | TC | ET | WT | TC | ET |
-    |----------------|----|----|----|----|----|
-    | Pipline A | 0.88 | 0.87 | 0.73 | 0.79 | 0.78 | 0.59 |
-    | Pipline B | 0.82 | 0.82 | 0.69 | 0.72 | 0.72 | 0.54 |
-    | Ensemble Learning | 0.86 | 0.86 | 0.71 | 0.77 | 0.77 | 0.57 |
+| Dice Similarity | Jaccard Similarity |
+|----------------|--------------------|
+| WT | TC | ET | WT | TC | ET |
+|----------------|----|----|----|----|----|
+| Pipline A | 0.88 | 0.87 | 0.73 | 0.79 | 0.78 | 0.59 |
+| Pipline B | 0.82 | 0.82 | 0.69 | 0.72 | 0.72 | 0.54 |
+| Ensemble Learning | 0.86 | 0.86 | 0.71 | 0.77 | 0.77 | 0.57 |
 
 **Figure** : the virtualization of Results Bar Plot both of **[UNET3DPPATTEN ,UNET3DPP ]**
     ![BarBox](results/similarMetrics.png)
 
 **Figure** : Results of Ensemble Wieght Voting Bar Plot both of **[UNET3DPPATTEN ,UNET3DPP ]**
        <div align="center">
-    <img src="results/EnsembleMetrics.png" width="400"/>
-    <img src="results/barbox_ensemble_classes.png" width="400"/>
+    <img src="results/EnsembleMetrics.png" width="200"/>
+    <img src="results/barbox_ensemble_classes.png" width="200"/>
         </div>
 
 
