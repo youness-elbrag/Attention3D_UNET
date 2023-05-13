@@ -63,14 +63,14 @@ our Pipline divde into tow Stage to train model Unet++ and Unet++ with Attention
     
     we provide the Yaml file configuration for Fine-Tuning the model brast2020.yml , has all the Hyper-Parameters to setup ,  we can change the model by updating the Model in config file which are **[UNET3DPPATTEN ,UNET3DPP ]**
     for run the model to train on GPU follwing the command :
-    ```python
+    ```sh
         python train.py --stage train --config brast2020.yaml --fold 0
     ```
 * Evaluation the model indenpendently:
     
     we provide here also the evaluation model indenpendently ,  we can change the model by updating the Model in config file  evaluate.yaml which are **[UNET3DPPATTEN ,UNET3DPP ]**
     for run the model to train on GPU follwing the command :
-    ```python
+    ```sh
         python predict.py --stage evaluate --config evaluate.yaml 
     ```
 
@@ -90,8 +90,8 @@ the performence of the both model we trained on indenpendently for 250 Epochs sh
 
 **Figure** : Results of Ensemble Wieght Voting Bar Plot both of **UNET3DPPATTEN ,UNET3DPP**
 <div align="center">
-        <img src="results/EnsembleMetrics.png" width="300"/>
-        <img src="results/barbox_ensemble_classes.png" width="300" height="300"/>
+        <img src="results/EnsembleMetrics.png" width="300" height="100" />
+        <img src="results/barbox_ensemble_classes.png" width="300" height="100"/>
 </div>
 
 
