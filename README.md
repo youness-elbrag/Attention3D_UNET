@@ -107,7 +107,7 @@ here the 3D prediction of Enesmeble Learning model both of Animation Slicer Fram
 
 * Animations Frames:
 <div align="center">
-    <img src="results/image_label_overlay_over_slice.gif" width="500" height="300" />
+    <img src="results/image_label_overlay_over_slice.gif" width="500" height="350" />
 </div>
 
 * Animations 3D Volumitric Data:
