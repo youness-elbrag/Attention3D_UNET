@@ -89,15 +89,9 @@ the performence of the both model we trained on indenpendently for 250 Epochs sh
     ![BarBox](results/similarMetrics.png)
 
 **Figure** : Results of Ensemble Wieght Voting Bar Plot both of **UNET3DPPATTEN ,UNET3DPP**
-<div align="center">
-    <figure>
-        <img src="results/EnsembleMetrics.png" width="400"/>
-        <figcaption>Ensemble Weight Voting Bar Plot (UNET3DPPATTEN)</figcaption>
-    </figure>
-    <figure>
-        <img src="results/barbox_ensemble_classes.png" width="400"/>
-        <figcaption>Ensemble Weight Voting Bar Plot (UNET3DPP)</figcaption>
-    </figure>
+<div align="left">
+        <img src="results/EnsembleMetrics.png" width="300"/>
+        <img src="results/barbox_ensemble_classes.png" width="300"/>
 </div>
 
 
