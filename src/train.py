@@ -1,5 +1,7 @@
 from metrice import BCEDiceLoss
-from model import AttentionUNetPlus
+from models.UnetAttentionGate import UNET3DPPAtt
+from models.UnetPlusPlus import UNET3DPP
+
 from Dataset_loader import BratsDataSet , get_dataloader , get_transform
 from utilis import read_yaml 
 import argparse

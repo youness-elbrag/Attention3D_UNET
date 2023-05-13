@@ -175,5 +175,17 @@ class Out(nn.Module):
         super().__init__()
         self.out_conv = nn.Conv3d(in_channels, out_channels, kernel_size=1)
     def forward(self, x):
-        return self.out_conv(x)        
+        return self.out_conv(x)  
+
+class OutAt(nn.Module):
+    def __init__(self, in_channels, out_channels,n_classes):
+        super().__init__()
+        self.out_conv = nn.Sequential(
+        nn.ConvTranspose3d(in_channels, out_channels, kernel_size=2, stride=2),
+        nn.BatchNorm3d(in_channels),
+        nn.ReLU(inplace=True),
+        nn.Conv3d(out_channels,n_classes, kernel_size=1)
+        )
+    def forward(self, x):
+        return self.out_conv(x)      
 

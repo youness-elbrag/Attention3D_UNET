@@ -1,0 +1,7 @@
+Model:
+    name: UNET3DPPATTEN
+    PathCheckpoint: best_checkpoint.pt
+Data:
+    Path: train_data.csv
+device:
+    name: cuda

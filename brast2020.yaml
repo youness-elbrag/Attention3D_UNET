@@ -30,7 +30,7 @@ Data:
         num_workers: 0
 
 Model:
-    name: AttentionUNetPlus
+    name: UNET3DPPATTEN
     n_classes: 3
 
 

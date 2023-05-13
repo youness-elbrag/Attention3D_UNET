@@ -81,27 +81,28 @@ class BratsDataSet(Dataset):
         label_stack = np.moveaxis(label_stack, (0,1,2,3), (0,3,2,1))
         return label_stack
 
- # List transform
-def get_transform(phase):
+# List transform
+def get_agumentation(phase):
     if phase == 'train':
         # As RandomAffine is faster then RandomElasticDeformation, we choose to
         # apply RandomAffine 80% of the times and RandomElasticDeformation the rest
         # Also, there is a 25% chance that none of them will be applied
         list_transforms = [
-            tio.RandomAffine(p = 0.5),
-            tio.RandomFlip(axes=['LR', 'AP', 'IS'], p = 0.02),
-#             tio.RandomBiasField(p = 0.25),
-#             tio.RandomBlur(p = 0.25),
-#             tio.RandomNoise(p = 0.25),
-            tio.RescaleIntensity(out_min_max=(0, 1))
+            tio.Resize((50,50,50)),
+            tio.RandomBiasField(p = 0.25),
+            tio.RandomBlur(p = 0.25),
+            tio.RescaleIntensity(out_min_max=(0, 1)),
             
         ]
         # Transforms can be composed as in torchvision.transforms
         transform = tio.Compose(list_transforms)
     else:
-        list_transforms = []
+        list_transforms = [
+                        tio.RescaleIntensity(out_min_max=(0, 1)),
+            
+        ]
         transform = tio.Compose(list_transforms)
-    return transform           
+    return transform   
 
 def get_dataloader(dataset, path_to_csv, phase, fold = 0, batch_size = 1, num_workers = 4):
     """
