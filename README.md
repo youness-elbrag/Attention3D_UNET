@@ -57,7 +57,10 @@ our Pipline divde into tow Stage to train model Unet++ and Unet++ with Attention
     in our Purposal we trained the model indenpendently and we combined the prediction both of the wieghts Checkpoints we provide open to downlaod following line **[Drive]()**
     Stratgy used is **Wieght Voting algorithm** here's the full picture 
 
-    ![img](results/Pipline-Training-ensemble.png)
+    !<div align="center">
+    <img src="results/Pipline-Training-ensemble.png" width="450" height="250" /></br>
+        <figcaption>UNET3DPPATTEN ,UNET3DPP comparisiont</figcaption>
+    </div>
 
 * Ruuning the model indenpendently:
     
