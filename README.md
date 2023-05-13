@@ -86,7 +86,10 @@ the performence of the both model we trained on indenpendently for 250 Epochs sh
 | Ensemble Learning | 0.86 | 0.86 | 0.71 | 0.77 | 0.77 | 0.57 |
 
 **Figure** : the virtualization of Results Bar Plot both of **UNET3DPPATTEN ,UNET3DPP**</br>
-    ![BarBox](results/similarMetrics.png)
+<div align="center">
+    <img src="results/similarMetrics.png" width="300" height="250" /></br>
+        <figcaption>Ensemble Weight Voting Bar Plot Ensemble Wieght</figcaption>
+</div>
 
 **Figure** : Results of Ensemble Wieght Voting Bar Plot both of **Ensemble Learning**
 <div align="center">
