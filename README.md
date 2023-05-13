@@ -17,6 +17,7 @@ For automatic segmentation we will use Unet3d To predict the age and number of d
 3. [run project](#run-project)
 5. [model](#Model-Description)
 5. [Results](#Results)
+5. [Prediction](#Prediction)
 
 ### introduction
 *Imaging Data Description*
@@ -100,7 +101,18 @@ the performence of the both model we trained on indenpendently for 250 Epochs sh
         <figcaption>Ensemble Weight Voting Bar Plot Ensemble Wieght</figcaption>
 </div>
 
+### Prediction
 
+here the 3D prediction of Enesmeble Learning model both of Animation Slicer Frames and 3D Extraction Volumitric Data 
 
-	
+* Animations Frames:
+<div align="center">
+    <img src="results/image_label_overlay_over_slice.gif" width="450" height="250" />
+</div>
+
+* Animations 3D Volumitric Data:
+    
+<!-- <div align="center">
+    <img src="results/EnsembleMetrics.png" width="300" height="250" />
+</div> -->
 
