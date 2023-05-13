@@ -87,7 +87,7 @@ the performence of the both model we trained on indenpendently for 250 Epochs sh
 
 **Figure** : the virtualization of Results Bar Plot both of **UNET3DPPATTEN ,UNET3DPP**</br>
 <div align="center">
-    <img src="results/similarMetrics.png" width="600" height="250" /></br>
+    <img src="results/similarMetrics.png" width="400" height="250" /></br>
         <figcaption>Ensemble Weight Voting Bar Plot Ensemble Wieght</figcaption>
 </div>
 
