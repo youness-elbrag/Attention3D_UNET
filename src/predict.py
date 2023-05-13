@@ -11,7 +11,7 @@ from DataLoader import BratsDataSet
 #--->Setting parameters
 def make_parse():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--stage', default='Predict', type=str)
+    parser.add_argument('--stage', default='evaluate', type=str)
     parser.add_argument('--config', default='../evaluate.yaml',type=str)
     args = parser.parse_args()
     return 
