@@ -79,15 +79,13 @@ our Pipline divde into tow Stage to train model Unet++ and Unet++ with Attention
 the performence of the both model we trained on indenpendently for 250 Epochs shows in the table and Diagram blow :
 
 **Table 1**: show the Evaluation Metrics we used DCS|JSC 
-| Dice Similarity | Jaccard Similarity |
-|----------------|--------------------|
-| WT | TC | ET | WT | TC | ET |
-|----------------|----|----|----|----|----|
+| Models | Dice Similarity WT | Dice Similarity TC | Dice Similarity ET | Jaccard Similarity WT | Jaccard Similarity TC | Jaccard Similarity ET |
+|--------|--------------------|--------------------|--------------------|-----------------------|-----------------------|-----------------------|
 | Pipline A | 0.88 | 0.87 | 0.73 | 0.79 | 0.78 | 0.59 |
 | Pipline B | 0.82 | 0.82 | 0.69 | 0.72 | 0.72 | 0.54 |
 | Ensemble Learning | 0.86 | 0.86 | 0.71 | 0.77 | 0.77 | 0.57 |
 
-**Figure** : the virtualization of Results Bar Plot both of **UNET3DPPATTEN ,UNET3DPP**
+**Figure** : the virtualization of Results Bar Plot both of **UNET3DPPATTEN ,UNET3DPP**</br>
     ![BarBox](results/similarMetrics.png)
 
 **Figure** : Results of Ensemble Wieght Voting Bar Plot both of **UNET3DPPATTEN ,UNET3DPP**
