@@ -55,7 +55,7 @@ All the imaging datasets have been segmented manually, by one to four raters, fo
 our Pipline divde into tow Stage to train model Unet++ and Unet++ with Attention Gate 
 * The Full Pipline Ensemble learning:
 
-    in our Purposal we trained the model indenpendently and we combined the prediction both of the wieghts Checkpoints we provide open to downlaod following line **[Drive]()**
+    in our Purposal we trained the model indenpendently and we combined the prediction both of the wieghts Checkpoints we provide open to downlaod following line **[Drive](https://drive.google.com/file/d/1Flqm_xGrGZBnEu8RxXswS1yKyRultVWc/view?usp=share_link)**
     Stratgy used is **Wieght Voting algorithm** here's the full picture 
 
     <div align="center">
