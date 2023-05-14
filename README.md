@@ -103,6 +103,8 @@ the performence of the both model we trained on indenpendently for 250 Epochs sh
 
 ### Prediction
 
+we have a full Notebook has all the Quantative results used both modesl we trained on with Ensemble Learning r**esults-attention-3d-unetpp-torchio**
+
 here the 3D prediction of Enesmeble Learning model both of Animation Slicer Frames and 3D Extraction Volumitric Data 
 
 * Animations Frames:
@@ -113,6 +115,6 @@ here the 3D prediction of Enesmeble Learning model both of Animation Slicer Fram
 * Animations 3D Volumitric Data:
     
 <div align="center">
-    <img src="results/result.gif" width="350" height="250" />
+    <img src="results/result.gif" width="500" height="250" />
 </div>
 
