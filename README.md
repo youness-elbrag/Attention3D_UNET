@@ -1,4 +1,4 @@
-# Attention_3DUnetPP_Brain-Tumor-Segementation
+# Attention 3D UnetPP Brain-Tumor-Segementation Ensemble Learning
 this repo contain the implementaiion of paper we are working on wih the team from Jorden Univesity  of science and technology , in this work we present a new based model on Neasted 3DUnet++ combined wiht attention mechanism Block for more effiency feature extracttion 
 
 ## the problem case study in 3D Biomedical image processing
@@ -61,7 +61,7 @@ our Pipline divde into tow Stage to train model Unet++ and Unet++ with Attention
     |-----------------------|------------|---------|
     | 3D Attention Unet++ | 30 M       | 101.5 MB |
     | 3D Unet++             | 31 M       | 785 MB  |
-    
+
 
     Stratgy used is **Wieght Voting algorithm** here's the full picture 
 
