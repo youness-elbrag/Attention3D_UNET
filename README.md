@@ -112,7 +112,7 @@ here the 3D prediction of Enesmeble Learning model both of Animation Slicer Fram
 
 * Animations 3D Volumitric Data:
     
-<!-- <div align="center">
-    <img src="results/EnsembleMetrics.png" width="300" height="250" />
-</div> -->
+<div align="center">
+    <img src="results/result.gif" width="350" height="250" />
+</div>
 
