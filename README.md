@@ -13,7 +13,7 @@ in many cases for processing Medical images to get better understanding of disea
 
 - Solution
 
-For automatic segmentation we will use Unet3d To predict the 3D Volumitric Shape of tumor: first, we will train the auto-encoder to scale the space from 4 240 240 * 150 to 512 of dimession for each Image modality
+For automatic segmentation we will use Unet3d To predict the 3D Volumitric Shape of tumor: we used Neasted 3DUnet++ combined with attention mechanism Block for more effiency feature extracttion and  we trained on indenpendently 3DUnet++ and 3DUnet++ combined with attention mechanism
 
 1. [introduction](#introduction)
 2. [environment project](#environment-project)
