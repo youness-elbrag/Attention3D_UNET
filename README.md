@@ -4,13 +4,16 @@ this repo contain the implementation of paper we are working with the team from 
 ## the problem case study in 3D Biomedical image processing
 
 - subject
+
 Accurate segmentation of brain tumor sub-regions is essential in the quantification of lesion burden, providing insight into the functional outcome of patients. In this regard, 3D multi-parametric magnetic resonance imaging (3D mpMRI) is widely used for non-invasive visualization and analysis of brain tumors. Different MRI sequences (such as T1, T1ce, T2, and FLAIR) are often used to provide complementary information about different brain tumor sub-regions
 
 - Problem
+
 in many cases for processing Medical images to get better understanding of disease and impact on human being life such Brain tumor is most area for reseachers to improve system diagnosis in partuclar Task Segementation , last few years lunch of challenges BRATS for segmentation Brain tumor Sub-regrion many of studying came up to improve CAD system ,
 
 - Solution
-For automatic segmentation we will use Unet3d To predict the 3D Volumitric Shape of tumor: first, we will train the auto-encoder to scale the space from 4 240 240 * 150 to 512 of dimession for each Image modality 
+
+For automatic segmentation we will use Unet3d To predict the 3D Volumitric Shape of tumor: first, we will train the auto-encoder to scale the space from 4 240 240 * 150 to 512 of dimession for each Image modality
 
 1. [introduction](#introduction)
 2. [environment project](#environment-project)
